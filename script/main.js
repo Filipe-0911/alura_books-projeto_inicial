@@ -10,9 +10,15 @@ async function getBuscarLivrosDaApi() {
         livros = await res.json();
         let livrosComDesconto = aplicarDesconto(livros);
         exibirOsLivrosNaTela(livrosComDesconto);
+
+        //exibirOsLivrosNaTela(livros)
     } catch (erro) {
         
         console.log(erro);
+        elementoParaInserirLivros.innerHTML = 
+        `
+        <p style="text-align: center;">Erro de banco de dados.</p>
+        `;
         
     };
 }

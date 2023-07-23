@@ -20,14 +20,17 @@ function filtrarLivros() {
 }
 
 function filtrarPorCategoria(categoria) {
-    return livros.filter(livro => livro.categoria == categoria);
+    
+    return aplicarDesconto(livros).filter(livro => livro.categoria == categoria);
 }
 
 function filtrarPorDisponibilidade() {
-    return livros.filter(livro => livro.quantidade > 0);
+    
+    return aplicarDesconto(livros).filter(livro => livro.quantidade > 0);
 }
 
 function exibirValorTotalDosLivrosDisponiveisNaTela (valorTotal) {
+
     elementoComValorTotalDeLivrosDisponiveis.innerHTML = `
     <div class="livros__disponiveis">
         <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
